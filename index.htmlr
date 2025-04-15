@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Portfolio Template</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fafafa;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .profile h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(120deg, #2b2b2b, #4a4a4a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .profile h2 {
+      font-size: 2.2rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .bio {
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+
+    .primary-btn, .secondary-btn {
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .primary-btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .secondary-btn {
+      background: #fff;
+      color: #000;
+      border: 2px solid #eee;
+    }
+
+    .secondary-btn:hover {
+      background: #fafafa;
+      border-color: #ddd;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+      margin: 6rem 0;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 16px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .project-card:hover img {
+      transform: scale(1.03);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    .about, .experience {
+      max-width: 800px;
+      margin: 6rem auto;
+      padding: 0 2rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #1a1a1a;
+    }
+
+    .experience-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+
+    .experience-item:hover {
+      padding-left: 1rem;
+      background: linear-gradient(to right, #f8f8f8, transparent);
+    }
+
+    .date {
+      color: #888;
+      min-width: 140px;
+      font-weight: 500;
+    }
+
+    .role {
+      flex-grow: 1;
+      text-align: right;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    .testimonials {
+      padding: 4rem 2rem;
+      background: #fafafa;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial-card p {
+      color: #555;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .author h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+      color: #1a1a1a;
+    }
+
+    .author p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .contact {
+      padding: 6rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-intro {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .contact-form {
+      margin-top: 3rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #eee;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #fafafa;
+      margin-top: 4rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: #666;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .profile h1 {
+        font-size: 2.8rem;
+      }
+      
+      .profile h2 {
+        font-size: 1.8rem;
+      }
+      
+      .experience-item {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .role {
+        text-align: left;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .primary-btn, .secondary-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact {
+        padding: 4rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="profile">
+        <img src="https://placehold.co/100x100" alt="Profile" class="profile-img">
+        <h1>Hey, I'm Mia Carter.</h1>
+        <h2>Dreamer & Designer</h2>
+        <p class="bio">Crafting seamless experiences and bold visuals. High school student by day, creative thinker, and aspiring innovator by night.</p>
+        <div class="cta-buttons">
+          <button class="primary-btn">Get this Template</button>
+          <button class="secondary-btn">Available for new project</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-grid">
+      <div class="project-card">
+        <img src="https://placehold.co/300x600" alt="Project 1">
+      </div>
+      <div class="project-card">
+        <img src="https://placehold.co/300x600" alt="Project 2">
+      </div>
+      <div class="project-card">
+        <img src="https://placehold.co/300x600" alt="Project 3">
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>About</h2>
+      <p>I'm Mia Carter, a curious designer, coder, and storyteller. Currently a student at Springfield High School, but always exploring the limitless possibilities of creativity and technology.</p>
+      <p>I thrive on transforming ideas into reality, whether it's crafting digital interfaces, designing immersive visuals, or building websites that feel effortless to use.</p>
+    </section>
+
+    <section class="experience">
+      <h2>Work Experience</h2>
+      <div class="experience-item">
+        <div class="date">2024 - Present</div>
+        <div class="role">Lead Designer at Company</div>
+      </div>
+      <div class="experience-item">
+        <div class="date">2022 - 2024</div>
+        <div class="role">Senior UI/UX Designer at Company</div>
+      </div>
+      <div class="experience-item">
+        <div class="date">2020 - 2022</div>
+        <div class="role">Product Designer at Company</div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>Testimonials</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>"Mia is a product designer who truly elevates the design process. Her innovative approach and creative solutions helped us rethink the entire user journey. Her work doesn't just look great—"</p>
+          <div class="author">
+            <img src="https://placehold.co/40x40" alt="Arthur" class="author-img">
+            <div>
+              <h4>Arthur</h4>
+              <p>Web Designer</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>"Mia has an exceptional eye for detail. She transforms complex problems into elegant solutions. Her strategic thinking was integral in redesigning our platform for improved functionality and visual appeal."</p>
+          <div class="author">
+            <img src="https://placehold.co/40x40" alt="John" class="author-img">
+            <div>
+              <h4>John</h4>
+              <p>Web Designer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Get in touch</h2>
+      <p class="contact-intro">I'm always interested in exploring new opportunities, collaborating, or exchanging ideas with like-minded individuals.</p>
+      <p>Feel free to book a call or email me if you'd like to see my portfolio deck or to discuss a potential project.</p>
+      
+      <form class="contact-form">
+        <input type="text" placeholder="First Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea placeholder="Write your message"></textarea>
+        <button type="submit" class="primary-btn">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>Copyright © 2025 Mia Carter. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </footer>
+  </main>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</body>
+</html>
